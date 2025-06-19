@@ -3,7 +3,13 @@
 # Script para iniciar o sistema de frota na VPS
 
 # Entrar na pasta do projeto (ajuste o caminho conforme necessário)
-cd /path/para/seu/projeto
+cd /var/www/frota-app
+
+# Verificar se o diretório existe e contém package.json
+if [ ! -f package.json ]; then
+  echo "Erro: package.json não encontrado no diretório /var/www/frota-app"
+  exit 1
+fi
 
 # Instalar dependências
 npm install
